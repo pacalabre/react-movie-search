@@ -1,0 +1,17 @@
+.movie-search-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 550px;
+  margin: 5% auto;
+}
+
+.movie-search-input {
+  height: 40px;
+}
+
+.movie-search-btn {
+  background: rgb(16, 223, 178);
+  border: none;
+  height: 40px;
+}
