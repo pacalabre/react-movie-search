@@ -10,6 +10,7 @@ export function MovieSearch({ movies, setMovies }) {
       const response = await fetch(API_URL);
       const movies = await response.json();
       setMovies(movies.Search);
+      setSearchTerm("");
     } catch (error) {
       console.log(error);
     }
