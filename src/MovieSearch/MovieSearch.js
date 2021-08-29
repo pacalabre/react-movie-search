@@ -1,7 +1,7 @@
 import "./MovieSearch.css";
 import { useState } from "react";
 
-export function MovieSearch({ movies, setMovies }) {
+export function MovieSearch({ setMovies }) {
   const [searchTerm, setSearchTerm] = useState("");
   const API_URL = `https://www.omdbapi.com/?s=${searchTerm}&apikey=902755be`;
 
