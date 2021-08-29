@@ -1,14 +1,17 @@
 import "./MovieDropdown.css";
+import PropTypes from "prop-types";
 
 export function MovieDropdown({
   movies,
-  selectedMovie,
   setSelectedMovie,
   hasSearched,
+  lastSearch,
+  isLoading,
 }) {
-  if (movies.length > 0) {
+  if (movies.length > 0 && isLoading !== true) {
     return (
       <section>
+        <h2>Search Results For "{lastSearch}"</h2>
         <select
           onChange={(event) => {
             event.preventDefault();
@@ -19,7 +22,7 @@ export function MovieDropdown({
             }));
           }}
         >
-          <option>Select One</option>
+          <option>Select a Poster</option>
           {movies.map((movie) => {
             return (
               <option key={movie.imdbID} data-poster={movie.Poster}>
@@ -31,9 +34,17 @@ export function MovieDropdown({
       </section>
     );
   }
-  if (movies.length < 1 && hasSearched) {
-    return <p>No Results Found</p>;
+  if (movies.length < 1 && hasSearched && isLoading !== true) {
+    return <p>No Results Found for "{lastSearch}"</p>;
   } else {
     return null;
   }
 }
+
+MovieDropdown.propTypes = {
+  movies: PropTypes.array.isRequired,
+  setSelectedMovie: PropTypes.func.isRequired,
+  hasSearched: PropTypes.bool.isRequired,
+  lastSearch: PropTypes.string.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+};

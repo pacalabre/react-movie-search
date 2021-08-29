@@ -1,14 +1,20 @@
 import "./MovieSearch.css";
 import { useState } from "react";
+import PropTypes from "prop-types";
 
-export function MovieSearch({ setMovies, setIsLoading, setHasSearched }) {
+export function MovieSearch({
+  setMovies,
+  setIsLoading,
+  setHasSearched,
+  setLastSearch,
+}) {
   const [searchTerm, setSearchTerm] = useState("");
   const API_URL = `https://www.omdbapi.com/?s=${searchTerm}&apikey=902755be`;
 
   const getMovies = async () => {
+    setIsLoading(true);
+    setSearchTerm("");
     try {
-      setIsLoading(true);
-
       const response = await fetch(API_URL);
       const movies = await response.json();
       if (movies.Search) {
@@ -16,12 +22,12 @@ export function MovieSearch({ setMovies, setIsLoading, setHasSearched }) {
       } else {
         setMovies([]);
       }
-      setSearchTerm("");
     } catch (error) {
       console.log(error);
     }
     setIsLoading(false);
     setHasSearched(true);
+    setLastSearch(searchTerm);
   };
   return (
     <form className="movie-search-form">
@@ -46,3 +52,10 @@ export function MovieSearch({ setMovies, setIsLoading, setHasSearched }) {
     </form>
   );
 }
+
+MovieSearch.propTypes = {
+  setMovies: PropTypes.func.isRequired,
+  setIsLoading: PropTypes.func.isRequired,
+  setHasSearched: PropTypes.func.isRequired,
+  setLastSearch: PropTypes.func.isRequired,
+};
