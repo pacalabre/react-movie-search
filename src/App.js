@@ -8,6 +8,7 @@ function App() {
   const [selectedMovie, setSelectedMovie] = useState({ name: "", poster: "" });
   const [isLoading, setIsLoading] = useState(false);
   const [hasSearched, setHasSearched] = useState(false);
+  const [lastSearch, setLastSearch] = useState("");
 
   useEffect(() => {
     setSelectedMovie({ name: "", poster: "" });
@@ -19,14 +20,17 @@ function App() {
         setHasSearched={setHasSearched}
         setIsLoading={setIsLoading}
         setMovies={setMovies}
+        setLastSearch={setLastSearch}
       />
-      {isLoading === true && <p>Loading...</p>}
+      {isLoading === true && <div className="loader"></div>}
       <MovieDropdown
+        isLoading={isLoading}
         hasSearched={hasSearched}
         movies={movies}
         setSelectedMovie={setSelectedMovie}
+        lastSearch={lastSearch}
       />
-      {selectedMovie.name.length > 0 && (
+      {selectedMovie.name.length > 0 && isLoading !== true && (
         <img
           alt={`${selectedMovie.name} movie poster`}
           src={selectedMovie.poster}
