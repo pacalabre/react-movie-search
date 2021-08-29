@@ -10,9 +10,12 @@ export function MovieDropdown({
 }) {
   if (movies.length > 0 && isLoading !== true) {
     return (
-      <section>
-        <h2>Search Results For "{lastSearch}"</h2>
+      <section className="movie-dropdown-section">
+        <p className="search-results-message">
+          Search Results For "{lastSearch}"
+        </p>
         <select
+          className="movie-dropdown-select"
           onChange={(event) => {
             event.preventDefault();
             setSelectedMovie((prevState) => ({
@@ -35,7 +38,13 @@ export function MovieDropdown({
     );
   }
   if (movies.length < 1 && hasSearched && isLoading !== true) {
-    return <p>No Results Found for "{lastSearch}"</p>;
+    return (
+      <section className="movie-dropdown-section">
+        <p className="search-results-message">
+          No Results Found for "{lastSearch}"
+        </p>
+      </section>
+    );
   } else {
     return null;
   }

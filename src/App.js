@@ -16,6 +16,7 @@ function App() {
 
   return (
     <main className="App">
+      <h1>Search For Movies</h1>
       <MovieSearch
         setHasSearched={setHasSearched}
         setIsLoading={setIsLoading}
@@ -32,6 +33,7 @@ function App() {
       />
       {selectedMovie.name.length > 0 && isLoading !== true && (
         <img
+          className="movie-poster"
           alt={`${selectedMovie.name} movie poster`}
           src={selectedMovie.poster}
         />

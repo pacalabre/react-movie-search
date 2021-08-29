@@ -1,0 +1,14 @@
+.movie-dropdown-section {
+  margin-top: 80px;
+}
+
+.search-results-message {
+  font-size: 24px;
+}
+
+.movie-dropdown-select {
+  height: 45px;
+  padding: 5px;
+  font-size: 18px;
+  width: 300px;
+}

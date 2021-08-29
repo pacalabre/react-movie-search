@@ -31,7 +31,6 @@ export function MovieSearch({
   };
   return (
     <form className="movie-search-form">
-      <label>Search For Movies</label>
       <input
         onChange={(event) => {
           setSearchTerm(event.target.value);
