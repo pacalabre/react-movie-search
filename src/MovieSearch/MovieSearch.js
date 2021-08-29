@@ -1,19 +1,27 @@
 import "./MovieSearch.css";
 import { useState } from "react";
 
-export function MovieSearch({ setMovies }) {
+export function MovieSearch({ setMovies, setIsLoading, setHasSearched }) {
   const [searchTerm, setSearchTerm] = useState("");
   const API_URL = `https://www.omdbapi.com/?s=${searchTerm}&apikey=902755be`;
 
   const getMovies = async () => {
     try {
+      setIsLoading(true);
+
       const response = await fetch(API_URL);
       const movies = await response.json();
-      setMovies(movies.Search);
+      if (movies.Search) {
+        setMovies(movies.Search);
+      } else {
+        setMovies([]);
+      }
       setSearchTerm("");
     } catch (error) {
       console.log(error);
     }
+    setIsLoading(false);
+    setHasSearched(true);
   };
   return (
     <form className="movie-search-form">

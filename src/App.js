@@ -6,14 +6,26 @@ import { MovieDropdown } from "./MovieDropdown/MovieDropdown";
 function App() {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState({ name: "", poster: "" });
+  const [isLoading, setIsLoading] = useState(false);
+  const [hasSearched, setHasSearched] = useState(false);
 
   useEffect(() => {
-    console.log("use effect", selectedMovie);
-  }, [selectedMovie]);
+    setSelectedMovie({ name: "", poster: "" });
+  }, [movies]);
+
   return (
     <main className="App">
-      <MovieSearch setMovies={setMovies} />
-      <MovieDropdown movies={movies} setSelectedMovie={setSelectedMovie} />
+      <MovieSearch
+        setHasSearched={setHasSearched}
+        setIsLoading={setIsLoading}
+        setMovies={setMovies}
+      />
+      {isLoading === true && <p>Loading...</p>}
+      <MovieDropdown
+        hasSearched={hasSearched}
+        movies={movies}
+        setSelectedMovie={setSelectedMovie}
+      />
       {selectedMovie.name.length > 0 && (
         <img
           alt={`${selectedMovie.name} movie poster`}
