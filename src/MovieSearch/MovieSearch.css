@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 550px;
+  max-width: 510px;
   margin: auto;
 }
 
@@ -14,7 +14,6 @@
 
 .movie-search-input {
   height: 40px;
-  max-width: 540px;
   width: 100%;
   font-size: 18px;
   padding: 5px;

@@ -13,7 +13,6 @@ export function MovieSearch({
 
   const getMovies = async () => {
     setIsLoading(true);
-    setSearchTerm("");
     try {
       const response = await fetch(API_URL);
       const movies = await response.json();
@@ -28,10 +27,11 @@ export function MovieSearch({
     setIsLoading(false);
     setHasSearched(true);
     setLastSearch(searchTerm);
+    setSearchTerm("");
   };
   return (
     <form className="movie-search-form">
-      <label className="movie-search-label" for="search">
+      <label className="movie-search-label" htmlFor="search">
         Search
       </label>
       <input
