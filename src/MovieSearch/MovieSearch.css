@@ -7,12 +7,20 @@
   margin: auto;
 }
 
+.movie-search-label {
+  align-self: flex-start;
+  margin-bottom: 10px;
+}
+
 .movie-search-input {
   height: 40px;
-  min-width: 520px;
+  max-width: 540px;
+  width: 100%;
   font-size: 18px;
   padding: 5px;
   border: none;
+  color: white;
+  background: #494949;
 }
 
 .movie-search-btn {
@@ -22,7 +30,7 @@
   min-width: 200px;
   font-size: 20px;
   text-transform: uppercase;
-  margin-top: 7px;
+  margin-top: 15px;
   font-weight: 500;
   color: #094739;
   transition: 0.2s;

@@ -31,10 +31,14 @@ export function MovieSearch({
   };
   return (
     <form className="movie-search-form">
+      <label className="movie-search-label" for="search">
+        Search
+      </label>
       <input
         onChange={(event) => {
           setSearchTerm(event.target.value);
         }}
+        name="search"
         value={searchTerm}
         className="movie-search-input"
         placeholder="Jaws: The Revenge"
@@ -46,7 +50,7 @@ export function MovieSearch({
         }}
         className="movie-search-btn"
       >
-        Search
+        Submit
       </button>
     </form>
   );

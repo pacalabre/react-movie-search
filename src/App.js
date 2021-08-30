@@ -16,7 +16,7 @@ function App() {
 
   return (
     <main className="App">
-      <h1>Search For Movies</h1>
+      <h1>Find Movie Posters</h1>
       <MovieSearch
         setHasSearched={setHasSearched}
         setIsLoading={setIsLoading}
