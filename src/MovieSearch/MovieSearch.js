@@ -41,7 +41,7 @@ export function MovieSearch({
         name="search"
         value={searchTerm}
         className="movie-search-input"
-        placeholder="Jaws: The Revenge"
+        placeholder="example: Jaws The Revenge"
       />
       <button
         onClick={(event) => {
