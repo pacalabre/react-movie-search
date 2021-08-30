@@ -31,13 +31,18 @@ function App() {
         setSelectedMovie={setSelectedMovie}
         lastSearch={lastSearch}
       />
-      {selectedMovie.name.length > 0 && isLoading !== true && (
-        <img
-          className="movie-poster"
-          alt={`${selectedMovie.name} movie poster`}
-          src={selectedMovie.poster}
-        />
+      {selectedMovie.poster === "N/A" && isLoading !== true && (
+        <p>There is no poster for this movie</p>
       )}
+      {selectedMovie.name.length > 0 &&
+        isLoading !== true &&
+        selectedMovie.poster !== "N/A" && (
+          <img
+            className="movie-poster"
+            alt={`${selectedMovie.name} movie poster`}
+            src={selectedMovie.poster}
+          />
+        )}
     </main>
   );
 }
